@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier Pardo - Digital Solutions Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            --glow-color: #00eaff;
+            --primary-text: #e0f7fa;
+            --secondary-text: #b2ebf2;
+            --accent-text: #84ffff;
+            --card-bg: rgba(14, 23, 33, 0.6);
+            --border-color: rgba(0, 234, 255, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .card {
+            position: relative;
+            width: 680px;
+            height: 380px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 0 25px var(--glow-color), 0 0 50px var(--glow-color);
+            display: flex;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Columna de Información --- */
+        .info-section {
+            flex-basis: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            margin: 0;
+            color: var(--primary-text);
+            text-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .subtitle {
+            margin: 12px 0 30px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--secondary-text);
+            font-weight: 400;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-text);
+            text-shadow: 0 0 5px var(--glow-color);
+            text-decoration: none;
+        }
+        
+        .contact-item .icon {
+            width: 22px; height: 22px;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px var(--glow-color));
+        }
+
+        .contact-item:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        /* --- Panel del QR --- */
+        .qr-pane {
+            flex-basis: 40%;
+            background: linear-gradient(-45deg, rgba(0,0,0,0.5), transparent);
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+        
+        .qr-pane::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0, 234, 255, 0.1),
+                rgba(0, 234, 255, 0.1) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+            animation: scanline 10s linear infinite;
+        }
+        
+        @keyframes scanline {
+            from { background-position: 0 0; }
+            to { background-position: 0 200px; }
+        }
+
+        .qr-code {
+            width: 170px;
+            height: 170px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 0 40px var(--glow-color);
+            transition: transform 0.3s ease-out;
+            z-index: 1;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 720px) {
+            .card {
+                flex-direction: column;
+                width: 90vw;
+                height: auto;
+                animation: none;
+            }
+            .info-section { padding: 30px; }
+            .qr-pane { flex-basis: auto; padding: 40px 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <section class="info-section">
+            <h1>JAVIER PARDO</h1>
+            <p class="subtitle">
+                Creador de Soluciones Digitales.
+                <br>Experto en Diseño, Soporte Técnico y Tecnologías Emergentes.
+            </p>
+            
+            <div class="contact-item">
+                <!-- Icono de correo SVG -->
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 4H21C21.5523 4 22 4.44772 22 5V19C22 19.5523 21.5523 20 21 20H3C2.44772 20 2 19.5523 2 19V5C2 4.44772 2.44772 4 3 4ZM20 6L12 11L4 6V6.25537L12 11.7446L20 6.25537V6Z"></path></svg>
+                <span>habierd@proton.me</span>
+            </div>
+
+            <a href="https://linkedin.com/in/habier" target="_blank" rel="noopener" class="contact-item">
+                <!-- Icono de LinkedIn SVG -->
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 0H5C2.239 0 0 2.239 0 5V19C0 21.761 2.239 24 5 24H19C21.761 24 24 21.761 24 19V5C24 2.239 21.761 0 19 0ZM8 19H5V8H8V19ZM6.5 6.732C5.534 6.732 4.75 5.942 4.75 4.968C4.75 3.994 5.534 3.204 6.5 3.204C7.466 3.204 8.25 3.994 8.25 4.968C8.25 5.942 7.466 6.732 6.5 6.732ZM20 19H17V13.396C17 10.028 13 10.283 13 13.396V19H10V8H13V9.765C14.396 7.179 20 6.988 20 12.124V19Z"></path></svg>
+                <span>linkedin.com/in/habier</span>
+            </a>
+
+        </section>
+
+        <aside class="qr-pane">
+            <img class="qr-code" src="QR.jpg" alt="QR Code a perfil de LinkedIn">
+        </aside>
+    </div>
+
+</body>
+</html>
